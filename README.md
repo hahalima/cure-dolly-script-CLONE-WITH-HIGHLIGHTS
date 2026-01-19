@@ -18,3 +18,42 @@ For my part, [I (Kellen)](https://bento.me/kln) converted script to Markdown, ch
 5. Merge line-by-line text into readable paragraph text
 
 Something else may have broken during all the changes, but there shouldn't be any critical breaks.
+
+## Why Highlights? I wanted custom highlights for concise reviewing
+
+I added highlights so I can mark and review the main points while reading the Cure Dolly script. The goal is to collect key text and images and revisit them quickly from a dedicated review page.
+
+## Highlights (local)
+
+There is now a local highlights workflow for reviewing key parts of text and images:
+
+1. Select text in a lesson to create a highlight (multi-paragraph selections supported).
+2. Click an image, then use the "Highlight image" button to add a border highlight.
+3. Click an existing highlight in a lesson to reveal a "Delete highlight" button.
+4. Use the **Highlights** page to review items grouped by page, search, add optional notes, delete items, and export a JSON backup.
+5. Use the Prev/Next highlight buttons in the outline area to jump between highlights on a page.
+
+Highlights are stored in your browser's localStorage and only exist on your machine.
+
+To ship a default set of highlights to everyone:
+
+1. Create highlights locally and click **Export JSON** on the Highlights page.
+2. Replace `config/docs/public/highlights.json` with the exported JSON contents.
+3. Deploy the site. New visitors will load those defaults once, then their changes are saved in their own localStorage.
+
+## Making a private copy (no fork badge)
+
+If you want your own GitHub repo without the “forked from” label:
+
+1. Create a new empty repo on GitHub (no README/license).
+2. In your local clone, repoint the remotes:
+   - `git remote rename origin upstream`
+   - `git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git`
+3. Push to your new repo: `git push -u origin main`
+
+You can keep `upstream` if you want to pull updates from the original project later.
+
+To pull updates from the original project (if you kept `upstream`):
+
+1. Fetch latest changes: `git fetch upstream`
+2. Merge into your main branch: `git merge upstream/main`

@@ -69,7 +69,8 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'About', link: '/about/about' }
+      { text: 'Highlights', link: '/highlights' },
+      { text: 'About', link: '/about' }
     ],
     footer: {
       message: 'Created by <a href="https://bento.me/kln">Kellen</a>',

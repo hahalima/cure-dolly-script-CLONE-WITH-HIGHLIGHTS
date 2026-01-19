@@ -4,3 +4,25 @@
   }
 
 sup a {text-decoration:none!important}
+
+.VPDocAsideOutline .outline-link,
+.VPDocAsideOutline .outline-marker,
+.VPDocAsideOutline .outline-title,
+.VPDocOutline .outline-link,
+.VPDocOutline .outline-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.VPDocAside,
+.VPDocAsideOutline {
+  width: 420px;
+}
+
+@media (max-width: 960px) {
+  .VPDocAside,
+  .VPDocAsideOutline {
+    width: 100%;
+  }
+}
