@@ -7,7 +7,7 @@
         @click="scrollTo(prevId)"
         title="Previous highlight"
       >
-        ↑ Prev
+        ↑ Prev (P)
       </button>
       <button
         class="hl-nav__btn"
@@ -15,7 +15,7 @@
         @click="scrollTo(nextId)"
         title="Next highlight"
       >
-        ↓ Next
+        ↓ Next (N)
       </button>
     </div>
   </Teleport>
@@ -160,15 +160,35 @@ function handleScroll() {
   collectHighlights();
 }
 
+function handleKeydown(event: KeyboardEvent) {
+  if (isHighlightsPage.value) return;
+  const target = event.target as HTMLElement | null;
+  if (
+    target &&
+    (target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.isContentEditable)
+  ) {
+    return;
+  }
+  if (event.key === "P") {
+    if (prevId.value) scrollTo(prevId.value);
+  } else if (event.key === "N") {
+    if (nextId.value) scrollTo(nextId.value);
+  }
+}
+
 onMounted(() => {
   highlightStore.load();
   updateAsidePresence();
   nextTick(collectHighlights);
   window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("keydown", handleKeydown);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("keydown", handleKeydown);
 });
 
 watch(
