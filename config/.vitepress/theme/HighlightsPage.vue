@@ -9,6 +9,7 @@
           type="search"
           placeholder="Search highlights"
         />
+        <button class="hl-export-btn" @click="loadSeed">Load seed</button>
         <label class="hl-import-btn">
           Import JSON
           <input
@@ -67,6 +68,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { withBase } from "vitepress";
 import {
   highlightState,
   highlightStore,
@@ -175,6 +177,19 @@ function exportJson() {
   link.download = `cure-dolly-highlights-${timestamp}.json`;
   link.click();
   URL.revokeObjectURL(url);
+}
+
+function loadSeed() {
+  fetch(withBase("/cure-dolly-highlights-by-chris.json"))
+    .then((response) => (response.ok ? response.json() : null))
+    .then((data) => {
+      if (!data || !Array.isArray(data.items)) return;
+      highlightState.items = data.items;
+      highlightStore.save();
+    })
+    .catch(() => {
+      // Ignore seed load errors.
+    });
 }
 
 function importJson(event: Event) {

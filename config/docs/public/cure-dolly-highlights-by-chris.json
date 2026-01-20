@@ -1,0 +1,99 @@
+{
+  "items": [
+    {
+      "id": "x3iw2v1y",
+      "type": "text",
+      "pagePath": "/74-love-and-other-mysteries-of-%E3%81%93%E3%81%A8-%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%93%E3%81%A8%E3%81%8C%E5%A5%BD%E3%81%8D-%E7%A7%81%E3%81%AE%E3%81%93%E3%81%A8%E3%81%8C%E5%AB%8C%E3%81%84-%E3%81%A8%E3%81%84%E3%81%86%E3%81%93%E3%81%A8-%E3%81%9D%E3%81%86%E3%81%84%E3%81%86%E3%81%93%E3%81%A8-%E3%81%A9%E3%81%86%E3%81%84%E3%81%86%E3%81%93%E3%81%A8-%E3%81%9D%E3%82%93%E3%81%AA%E3%81%93%E3%81%A8",
+      "pageTitle": "74. LOVE and other mysteries of こと! あなたのことが好き, 私のことが嫌い, ということ, そういうこと, どういうこと, そんなこと",
+      "orderIndex": 181,
+      "createdAt": 1768806869188,
+      "startOffset": 181,
+      "endOffset": 392,
+      "quote": "Today we're going to talk about some of the mysteries of the word こと. And this can indeed be very mysterious to foreign learners, because some meanings really can't be translated into English or other languages.",
+      "note": ""
+    },
+    {
+      "id": "dmhfrzdq",
+      "type": "text",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 132,
+      "createdAt": 1768881796561,
+      "startOffset": 132,
+      "endOffset": 255,
+      "quote": "The most basic thing about Japanese is the Japanese core sentence. Every Japanese sentence fundamentally has the same core.",
+      "note": ""
+    },
+    {
+      "id": "fela5uvd",
+      "type": "text",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 774,
+      "createdAt": 1768881801961,
+      "startOffset": 774,
+      "endOffset": 853,
+      "quote": "there are only two kinds of sentences: A is B sentences and A does B sentences.",
+      "note": ""
+    },
+    {
+      "id": "5oh7ci7f",
+      "type": "text",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 302,
+      "createdAt": 1768884890271,
+      "startOffset": 302,
+      "endOffset": 463,
+      "quote": "The engine is what makes the sentence move, what makes it work. The carriage has to be there because without the carriage there's nothing for the engine to move.",
+      "note": ""
+    },
+    {
+      "id": "13897zya",
+      "type": "text",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 1337,
+      "createdAt": 1768884932924,
+      "startOffset": 1337,
+      "endOffset": 1650,
+      "quote": "が is the center of Japanese grammar. Every Japanese sentence revolves around が. In some sentences we're not going to be able to see the が, but it's always there, and it's always doing the same job. It links together A and B and turns them into a sentence. So, our core A does B sentence is さくらがあるく = Sakura walks.",
+      "note": ""
+    },
+    {
+      "id": "1t840knz",
+      "type": "text",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 1649,
+      "createdAt": 1768885003708,
+      "startOffset": 1649,
+      "endOffset": 1742,
+      "quote": "the main carriage, the subject of the sentence, always carries a が, to link it to the engine.",
+      "note": ""
+    },
+    {
+      "id": "eqadsaxa",
+      "type": "text",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 3288,
+      "createdAt": 1768885152359,
+      "startOffset": 3288,
+      "endOffset": 3554,
+      "quote": "So those are the three forms of Japanese sentence. They all start with the subject of the sentence, they're all connected with が, and they can end in three ways: with a verb, which will end in う, with the copula だ, or with an い because the last word is an adjective.",
+      "note": ""
+    },
+    {
+      "id": "gzrugjbm",
+      "type": "image",
+      "pagePath": "/1-the-basic-types-of-sentences",
+      "pageTitle": "1. The Basic Types of Sentences",
+      "orderIndex": 4368.5,
+      "createdAt": 1768885153475,
+      "imageIndex": 3,
+      "imageSrc": "/media/image464.webp",
+      "note": ""
+    }
+  ]
+}
