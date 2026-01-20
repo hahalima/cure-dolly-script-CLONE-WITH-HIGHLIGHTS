@@ -103,13 +103,7 @@ function wrapTextRange(root: HTMLElement, item: HighlightItem) {
   let currentOffset = 0;
   let appliedId = false;
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode(node) {
-      if (!node.parentElement) return NodeFilter.FILTER_REJECT;
-      if (node.parentElement.closest("[data-hl-id]")) {
-        return NodeFilter.FILTER_REJECT;
-      }
-      return NodeFilter.FILTER_ACCEPT;
-    },
+    acceptNode: acceptTextNode,
   });
 
   let node: Text | null = walker.nextNode() as Text | null;
@@ -203,16 +197,61 @@ function rebuildHighlights() {
 }
 
 function getOffsetsFromRange(root: HTMLElement, range: Range): TextOffsets {
-  const startRange = range.cloneRange();
-  startRange.selectNodeContents(root);
-  startRange.setEnd(range.startContainer, range.startOffset);
-  const start = startRange.toString().length;
-
-  const endRange = range.cloneRange();
-  endRange.selectNodeContents(root);
-  endRange.setEnd(range.endContainer, range.endOffset);
-  const end = endRange.toString().length;
+  const start = getFilteredTextOffset(root, range.startContainer, range.startOffset);
+  const end = getFilteredTextOffset(root, range.endContainer, range.endOffset);
   return { start, end };
+}
+
+function acceptTextNode(node: Node) {
+  if (!(node instanceof Text)) return NodeFilter.FILTER_REJECT;
+  if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+  if (node.parentElement.closest("[data-hl-id]")) {
+    return NodeFilter.FILTER_REJECT;
+  }
+  if (node.parentElement.closest(".header-anchor")) {
+    return NodeFilter.FILTER_REJECT;
+  }
+  return NodeFilter.FILTER_ACCEPT;
+}
+
+function getFilteredTextOffset(
+  root: HTMLElement,
+  boundaryContainer: Node,
+  boundaryOffset: number
+) {
+  try {
+    const boundaryRange = document.createRange();
+    boundaryRange.setStart(root, 0);
+    boundaryRange.setEnd(boundaryContainer, boundaryOffset);
+
+    let total = 0;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: acceptTextNode,
+    });
+
+    let node = walker.nextNode() as Text | null;
+    while (node) {
+      const startCompare = boundaryRange.comparePoint(node, 0);
+      if (startCompare === 1) break;
+
+      const nodeLength = node.textContent?.length ?? 0;
+      const endCompare = boundaryRange.comparePoint(node, nodeLength);
+      if (endCompare === 1) {
+        const partialRange = document.createRange();
+        partialRange.setStart(node, 0);
+        partialRange.setEnd(boundaryContainer, boundaryOffset);
+        total += partialRange.toString().length;
+        break;
+      }
+
+      total += nodeLength;
+      node = walker.nextNode() as Text | null;
+    }
+
+    return total;
+  } catch {
+    return 0;
+  }
 }
 
 function selectionOverlapsHighlight(range: Range): boolean {
