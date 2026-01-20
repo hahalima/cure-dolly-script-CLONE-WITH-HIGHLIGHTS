@@ -9,6 +9,15 @@
           type="search"
           placeholder="Search highlights"
         />
+        <label class="hl-import-btn">
+          Import JSON
+          <input
+            class="hl-import-input"
+            type="file"
+            accept="application/json"
+            @change="importJson"
+          />
+        </label>
         <button class="hl-export-btn" @click="exportJson">Export JSON</button>
       </div>
     </header>
@@ -164,5 +173,25 @@ function exportJson() {
   link.download = `cure-dolly-highlights-${timestamp}.json`;
   link.click();
   URL.revokeObjectURL(url);
+}
+
+function importJson(event: Event) {
+  const input = event.target as HTMLInputElement | null;
+  const file = input?.files?.[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(String(reader.result || ""));
+      if (!data || !Array.isArray(data.items)) return;
+      highlightState.items = data.items;
+      highlightStore.save();
+    } catch {
+      // Ignore invalid JSON.
+    } finally {
+      if (input) input.value = "";
+    }
+  };
+  reader.readAsText(file);
 }
 </script>
