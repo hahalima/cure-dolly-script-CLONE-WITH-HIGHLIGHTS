@@ -1,13 +1,13 @@
 .hl-text {
-  background: #9ed9b5;
-  color: #1b1b1b;
-  border-radius: 3px;
-  padding: 0 2px;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #9ed9b5;
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.18em;
 }
 
 .hl-text.hl-active {
-  background: #ff6b6b;
-  color: #1b1b1b;
+  text-decoration-color: #ff4d4d;
 }
 
 .hl-float-btn,
@@ -173,16 +173,19 @@
 
 .hl-item__quote {
   display: inline-block;
-  background: #9ed9b5;
   padding: 2px 6px;
-  border-radius: 4px;
-  color: #1b1b1b;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #9ed9b5;
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.18em;
 }
 
 .hl-item__quote--image {
   display: inline-flex;
   flex-direction: column;
   gap: 6px;
+  text-decoration: none;
 }
 
 .hl-item__image {

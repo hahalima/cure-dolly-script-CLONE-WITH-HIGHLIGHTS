@@ -96,14 +96,16 @@ const groupedHighlights = computed<HighlightGroup[]>(() => {
     entry.items.push(item);
     byPage.set(pagePath, entry);
   });
-  return Array.from(byPage.values()).map((group) => {
-    const anchorId = `hl-group-${slugify(group.pageTitle)}`;
-    return {
-      ...group,
-      anchorId,
-      items: group.items.slice().sort((a, b) => a.orderIndex - b.orderIndex),
-    };
-  });
+  return Array.from(byPage.values())
+    .map((group) => {
+      const anchorId = `hl-group-${slugify(group.pageTitle)}`;
+      return {
+        ...group,
+        anchorId,
+        items: group.items.slice().sort((a, b) => a.orderIndex - b.orderIndex),
+      };
+    })
+    .sort((a, b) => a.pageTitle.localeCompare(b.pageTitle));
 });
 
 const searchQuery = ref("");
